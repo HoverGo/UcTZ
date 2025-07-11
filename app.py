@@ -74,6 +74,7 @@ def create_review(review: ReviewCreate):
     with db.get_conn() as conn:
         cursor = conn.cursor()
         cursor.execute(
+            
             "INSERT INTO reviews (text, sentiment, created_at) VALUES (?, ?, ?)",
             (review.text, sentiment, created_at)
         )
